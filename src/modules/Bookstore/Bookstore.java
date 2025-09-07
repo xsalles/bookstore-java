@@ -5,7 +5,6 @@ import modules.Loans.Loans;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Bookstore {
 	private String name;
@@ -42,9 +41,20 @@ public class Bookstore {
 		return city;
 	}
 
-	public List<Books> listAvailableBooks(Books[] books) {
-		if (books == null) return List.of();
 
-		return Arrays.stream(books).filter(book -> book.getAvailable().equals(Boolean.TRUE)).toList();
-	}
+	public String listAvailableBooks(List<Books> books) {
+		if (books == null) return "Não há livros disponíveis no momento.";
+
+        StringBuilder availableBooks = new StringBuilder("Livros disponíveis:\n");
+
+		for (Books book : books) {
+            if (book.getAvailable()) {
+                availableBooks.append("ID: ").append(book.getId() + " | ")
+                        .append("Título: ").append(book.getTitle() + " | ")
+                        .append("Autor: ").append(book.getAuthorName() + "\n").toString();
+            }
+        }
+
+        return availableBooks.toString();
+    }
 }

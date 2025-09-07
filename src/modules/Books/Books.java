@@ -13,7 +13,8 @@ public class Books {
     private final LocalDate publicationDate;
     private LocalDate updateDate;
 
-    public Books(String title, Author author, Boolean isAvailable, LocalDate publicationDate, LocalDate updateDate) {
+    public Books(String title, Author author, Boolean isAvailable, LocalDate publicationDate, LocalDate updateDate, Integer id) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.isAvailable = isAvailable;
@@ -29,7 +30,7 @@ public class Books {
         return title;
     }
 
-    public void setAvailable(Boolean available, Books[] books, Integer id) {
+    public void setAvailable(Boolean available, List<Books> books, Integer id) {
         for (Books book : books) {
             if (book.getId().equals(id)) {
                 this.isAvailable = available;
@@ -42,7 +43,9 @@ public class Books {
         return isAvailable;
     }
 
-    ;
+    public String getAuthorName() {
+        return author.getName();
+    }
 
     public void setUpdateDate(LocalDate updateDate) {
         this.updateDate = updateDate;
