@@ -47,12 +47,4 @@ public class Bookstore {
 
 		return Arrays.stream(books).filter(book -> book.getAvailable().equals(Boolean.TRUE)).toList();
 	}
-
-	public List<Books> listUnavailableBooks(Books[] books) {
-		if (books == null) return List.of();
-
-		return Arrays.stream(books).filter(book -> book.getAvailable().equals(Boolean.FALSE)).toList();
-	}
-
-
 }

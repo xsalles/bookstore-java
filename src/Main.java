@@ -32,7 +32,6 @@ public class Main {
                     
 					0 - Sair.					
 					1 - Listar livros disponpiveis.
-					2 - Listar livros indisponpiveis.
 					2 - Localização da livraria.
 					3 - Pegar emprestado um livro.
 					4 - Devolver um livro.
